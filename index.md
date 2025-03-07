@@ -171,7 +171,7 @@ Before starting, ensure you have the following tools installed and configured on
    git branch -M main
    git push -u origin main
    ```
-4. Go to `https://github.com/<your-username>/<your-repo-name>` to see your Vite app on GitHub.
+4. Go to `https://github.com/<your-username>/<your-repo-name>` to see your code on GitHub.
 
    <img src="./assets/images/github-vite-repo.png" alt="GitHub Vite Repo" width="500">
 
