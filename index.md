@@ -2,7 +2,6 @@
 layout: default
 ---
 
-# **codemoney**
 ## **Background Information**
 React is a popular JavaScript library for building user interfaces, while Vite is a modern frontend tool that enhances the development experience with fast builds and hot module replacement. GitHub Pages is a free hosting service that allows users to deploy static websites directly from a GitHub repository.
 
