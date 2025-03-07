@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Deploy a React + Vite App to GitHub Pages
+title: Deploy React + Vite App to GitHub Pages
 description: A step-by-step guide to setup and deploy a React + Vite web application to GitHub Pages.
 ---
 
