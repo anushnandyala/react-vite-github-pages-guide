@@ -186,6 +186,8 @@ cd path/to/your/repo
    https://<your-username>.github.io/<your-repo-name>/
    ```
 
+   <img src="./assets/images/vite-site.png" alt="Vite Site" width="500">
+
 ---
 # **Conclusion & Further Resources**
 You have successfully deployed a **React + Vite** app to **GitHub Pages**! If you encounter issues, here are some additional resources:
