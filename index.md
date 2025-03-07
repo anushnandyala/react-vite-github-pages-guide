@@ -44,19 +44,26 @@ Before starting, ensure you have the following tools installed and configured on
 ## **Step 1: Set Up a React + Vite Project**
 1. Open a terminal or command prompt.
 2. Navigate to the directory where you want to create the project.
-```sh
-cd path/to/your/repo
-```
+
+   ```sh
+   cd path/to/your/repo
+   ```
+
 3. Run the following command to create a new Vite project:
+
    ```sh
    # Replace <your-project-name> with your desired project name
    npm create vite@latest <your-project-name> -- --template react 
    ```
+
 4. Navigate into the project directory:
+
    ```sh
    cd <your-project-name>
    ```
+
 5. Install project dependencies:
+
    ```sh
    npm install
    ```
@@ -79,6 +86,7 @@ cd path/to/your/repo
 ## **Step 3: Configure Vite for GitHub Pages**
 1. Open `vite.config.js` in a code editor.
 2. Add the following `base` property to the configuration:
+
    ```js
    import { defineConfig } from 'vite';
    import react from '@vitejs/plugin-react';
@@ -92,10 +100,12 @@ cd path/to/your/repo
 ## **Step 4: Modify package.json for Deployment**
 1. Open `package.json`.
 2. Add this line to the top-level of the file:
+
    ```json
    "homepage": "https://<your-username>.github.io/<your-repo-name>/",
    ```
 2. Add the following scripts inside the `scripts` section:
+
    ```json
    "predeploy": "npm run build",
    "deploy": "gh-pages -d dist"
@@ -137,20 +147,24 @@ cd path/to/your/repo
    ```
 
 3. Run the following command to install the GitHub Pages package:
+
    ```sh
    npm install gh-pages --save-dev
    ```
 
 ## **Step 5: Initialize Git and Push the Project to GitHub**
 1. Initialize a Git repository:
+
    ```sh
    git init
    ```
 2. Add the remote GitHub repository:
+
    ```sh
    git remote add origin https://github.com/<your-username>/<your-repo-name>.git
    ```
 3. Commit and push the code:
+
    ```sh
    git add .
    git commit -m "Initial commit"
@@ -163,6 +177,7 @@ cd path/to/your/repo
 
 ## **Step 6: Deploy the App to GitHub Pages**
 1. Run the deployment script:
+
    ```sh
    npm run deploy
    ```

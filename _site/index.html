@@ -109,20 +109,28 @@
 <h2 id="step-1-set-up-a-react--vite-project"><strong>Step 1: Set Up a React + Vite Project</strong></h2>
 <ol>
   <li>Open a terminal or command prompt.</li>
-  <li>Navigate to the directory where you want to create the project.
+  <li>
+    <p>Navigate to the directory where you want to create the project.</p>
+
     <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd </span>path/to/your/repo
 </code></pre></div>    </div>
   </li>
-  <li>Run the following command to create a new Vite project:
+  <li>
+    <p>Run the following command to create a new Vite project:</p>
+
     <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Replace &lt;your-project-name&gt; with your desired project name</span>
 npm create vite@latest &lt;your-project-name&gt; <span class="nt">--</span> <span class="nt">--template</span> react 
 </code></pre></div>    </div>
   </li>
-  <li>Navigate into the project directory:
+  <li>
+    <p>Navigate into the project directory:</p>
+
     <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> &lt;your-project-name&gt;
 </code></pre></div>    </div>
   </li>
-  <li>Install project dependencies:
+  <li>
+    <p>Install project dependencies:</p>
+
     <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm <span class="nb">install</span>
 </code></pre></div>    </div>
   </li>
@@ -149,7 +157,9 @@ npm create vite@latest &lt;your-project-name&gt; <span class="nt">--</span> <spa
 <h2 id="step-3-configure-vite-for-github-pages"><strong>Step 3: Configure Vite for GitHub Pages</strong></h2>
 <ol>
   <li>Open <code class="language-plaintext highlighter-rouge">vite.config.js</code> in a code editor.</li>
-  <li>Add the following <code class="language-plaintext highlighter-rouge">base</code> property to the configuration:
+  <li>
+    <p>Add the following <code class="language-plaintext highlighter-rouge">base</code> property to the configuration:</p>
+
     <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">defineConfig</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">vite</span><span class="dl">'</span><span class="p">;</span>
 <span class="k">import</span> <span class="nx">react</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@vitejs/plugin-react</span><span class="dl">'</span><span class="p">;</span>
 
@@ -164,11 +174,15 @@ npm create vite@latest &lt;your-project-name&gt; <span class="nt">--</span> <spa
 <h2 id="step-4-modify-packagejson-for-deployment"><strong>Step 4: Modify package.json for Deployment</strong></h2>
 <ol>
   <li>Open <code class="language-plaintext highlighter-rouge">package.json</code>.</li>
-  <li>Add this line to the top-level of the file:
+  <li>
+    <p>Add this line to the top-level of the file:</p>
+
     <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"homepage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://&lt;your-username&gt;.github.io/&lt;your-repo-name&gt;/"</span><span class="err">,</span><span class="w">
 </span></code></pre></div>    </div>
   </li>
-  <li>Add the following scripts inside the <code class="language-plaintext highlighter-rouge">scripts</code> section:
+  <li>
+    <p>Add the following scripts inside the <code class="language-plaintext highlighter-rouge">scripts</code> section:</p>
+
     <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"predeploy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"npm run build"</span><span class="err">,</span><span class="w">
 </span><span class="nl">"deploy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"gh-pages -d dist"</span><span class="w">
 </span></code></pre></div>    </div>
@@ -207,7 +221,9 @@ npm create vite@latest &lt;your-project-name&gt; <span class="nt">--</span> <spa
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>    </div>
   </li>
-  <li>Run the following command to install the GitHub Pages package:
+  <li>
+    <p>Run the following command to install the GitHub Pages package:</p>
+
     <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm <span class="nb">install </span>gh-pages <span class="nt">--save-dev</span>
 </code></pre></div>    </div>
   </li>
@@ -215,15 +231,21 @@ npm create vite@latest &lt;your-project-name&gt; <span class="nt">--</span> <spa
 
 <h2 id="step-5-initialize-git-and-push-the-project-to-github"><strong>Step 5: Initialize Git and Push the Project to GitHub</strong></h2>
 <ol>
-  <li>Initialize a Git repository:
+  <li>
+    <p>Initialize a Git repository:</p>
+
     <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git init
 </code></pre></div>    </div>
   </li>
-  <li>Add the remote GitHub repository:
+  <li>
+    <p>Add the remote GitHub repository:</p>
+
     <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git remote add origin https://github.com/&lt;your-username&gt;/&lt;your-repo-name&gt;.git
 </code></pre></div>    </div>
   </li>
-  <li>Commit and push the code:
+  <li>
+    <p>Commit and push the code:</p>
+
     <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add <span class="nb">.</span>
 git commit <span class="nt">-m</span> <span class="s2">"Initial commit"</span>
 git branch <span class="nt">-M</span> main
@@ -239,7 +261,9 @@ git push <span class="nt">-u</span> origin main
 
 <h2 id="step-6-deploy-the-app-to-github-pages"><strong>Step 6: Deploy the App to GitHub Pages</strong></h2>
 <ol>
-  <li>Run the deployment script:
+  <li>
+    <p>Run the deployment script:</p>
+
     <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm run deploy
 </code></pre></div>    </div>
     <p>This builds the project and pushes the <code class="language-plaintext highlighter-rouge">dist/</code> folder to the <code class="language-plaintext highlighter-rouge">gh-pages</code> branch.</p>
