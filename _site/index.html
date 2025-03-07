@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
 
 <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Deploy React + Vite App to GitHub Pages | Deploying a React + Vite App to GitHub Pages</title>
+<title>Deploy React + Vite App to GitHub Pages | A step-by-step guide to setup and deploy a React + Vite web application to GitHub Pages.</title>
 <meta name="generator" content="Jekyll v4.4.1" />
 <meta property="og:title" content="Deploy React + Vite App to GitHub Pages" />
 <meta property="og:locale" content="en_US" />
@@ -12,12 +12,12 @@
 <meta property="og:description" content="A step-by-step guide to setup and deploy a React + Vite web application to GitHub Pages." />
 <link rel="canonical" href="http://0.0.0.0:4000/" />
 <meta property="og:url" content="http://0.0.0.0:4000/" />
-<meta property="og:site_name" content="Deploying a React + Vite App to GitHub Pages" />
+<meta property="og:site_name" content="Deploy React + Vite App to GitHub Pages" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Deploy React + Vite App to GitHub Pages" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebSite","description":"A step-by-step guide to setup and deploy a React + Vite web application to GitHub Pages.","headline":"Deploy React + Vite App to GitHub Pages","name":"Deploying a React + Vite App to GitHub Pages","url":"http://0.0.0.0:4000/"}</script>
+{"@context":"https://schema.org","@type":"WebSite","description":"A step-by-step guide to setup and deploy a React + Vite web application to GitHub Pages.","headline":"Deploy React + Vite App to GitHub Pages","name":"Deploy React + Vite App to GitHub Pages","url":"http://0.0.0.0:4000/"}</script>
 <!-- End Jekyll SEO tag -->
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -51,8 +51,6 @@
     <main id="content" class="main-content" role="main">
       <h1 id="introduction"><strong>Introduction</strong></h1>
 <h2 id="background-information"><strong>Background Information</strong></h2>
-<p>React is a popular JavaScript library for building user interfaces, while Vite is a modern frontend tool that enhances the development experience with fast builds and hot module replacement. GitHub Pages is a free hosting service that allows users to deploy static websites directly from a GitHub repository.</p>
-
 <p>This guide will walk through the process of deploying a <strong>React + Vite</strong> web application to GitHub Pages, a task commonly encountered by software developers, frontend engineers, and students working on web-based projects. Deploying a React + Vite app is useful for showcasing portfolio projects, sharing interactive web applications, and testing web designs.</p>
 
 <h2 id="context-of-use"><strong>Context of Use</strong></h2>
@@ -76,22 +74,22 @@
 <ol>
   <li><strong>Node.js (LTS version)</strong> – Required to run JavaScript applications.
     <ul>
-      <li>Download from: <a href="https://nodejs.org/">https://nodejs.org/</a></li>
+      <li>Download from: <a href="https://nodejs.org/en/download">https://nodejs.org/en/download</a></li>
     </ul>
   </li>
   <li><strong>Git</strong> – Required for version control and pushing code to GitHub.
     <ul>
-      <li>Download from: <a href="https://git-scm.com/">https://git-scm.com/</a></li>
+      <li>Download from: <a href="https://git-scm.com/downloads">https://git-scm.com/downloads</a></li>
     </ul>
   </li>
   <li><strong>GitHub Account</strong> – Needed to create a repository and host the project.
     <ul>
-      <li>Sign up at: <a href="https://github.com/">https://github.com/</a></li>
+      <li>Sign up at: <a href="https://github.com">https://github.com</a></li>
     </ul>
   </li>
-  <li><strong>GitHub CLI (Optional)</strong> – Simplifies authentication and repository management.
+  <li><strong>Code Editor (Recommended: VS Code)</strong> – To code and edit your project.
     <ul>
-      <li>Install from: <a href="https://cli.github.com/">https://cli.github.com/</a></li>
+      <li>Download from: <a href="https://code.visualstudio.com/Download">https://code.visualstudio.com/Download/</a></li>
     </ul>
   </li>
 </ol>
@@ -111,12 +109,17 @@
 <h2 id="step-1-set-up-a-react--vite-project"><strong>Step 1: Set Up a React + Vite Project</strong></h2>
 <ol>
   <li>Open a terminal or command prompt.</li>
+  <li>Navigate to the directory where you want to create the project.
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd </span>path/to/your/repo
+</code></pre></div>    </div>
+  </li>
   <li>Run the following command to create a new Vite project:
-    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm create vite@latest my-vite-app <span class="nt">--template</span> react
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Replace &lt;your-project-name&gt; with your desired project name</span>
+npm create vite@latest &lt;your-project-name&gt; <span class="nt">--</span> <span class="nt">--template</span> react 
 </code></pre></div>    </div>
   </li>
   <li>Navigate into the project directory:
-    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd </span>my-vite-app
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> &lt;your-project-name&gt;
 </code></pre></div>    </div>
   </li>
   <li>Install project dependencies:
@@ -125,43 +128,99 @@
   </li>
 </ol>
 
-<h2 id="step-2-configure-vite-for-github-pages"><strong>Step 2: Configure Vite for GitHub Pages</strong></h2>
+<h2 id="step-2-create-a-github-repository"><strong>Step 2: Create a GitHub Repository</strong></h2>
 <ol>
-  <li>Open <code class="language-plaintext highlighter-rouge">vite.config.js</code> in a text editor.</li>
+  <li>Go to GitHub and log in.</li>
+  <li>
+    <p>Click on New Repository.</p>
+
+    <p><img src="./assets/images/github-new-repo.png" alt="GitHub New Repo Button" width="500" /></p>
+  </li>
+  <li>Enter a repository name (e.g., &lt;your-repo-name&gt;).</li>
+  <li>Choose Public (or Private if you have GitHub Pro).</li>
+  <li>Do not initialize with a README, .gitignore, or license (these will be added later).</li>
+  <li>
+    <p>Click Create Repository.</p>
+
+    <p><img src="./assets/images/github-create-repo.png" alt="GitHub Create Repo" width="500" /></p>
+  </li>
+</ol>
+
+<h2 id="step-3-configure-vite-for-github-pages"><strong>Step 3: Configure Vite for GitHub Pages</strong></h2>
+<ol>
+  <li>Open <code class="language-plaintext highlighter-rouge">vite.config.js</code> in a code editor.</li>
   <li>Add the following <code class="language-plaintext highlighter-rouge">base</code> property to the configuration:
     <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">defineConfig</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">vite</span><span class="dl">'</span><span class="p">;</span>
 <span class="k">import</span> <span class="nx">react</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@vitejs/plugin-react</span><span class="dl">'</span><span class="p">;</span>
 
 <span class="k">export</span> <span class="k">default</span> <span class="nf">defineConfig</span><span class="p">({</span>
   <span class="na">plugins</span><span class="p">:</span> <span class="p">[</span><span class="nf">react</span><span class="p">()],</span>
-  <span class="na">base</span><span class="p">:</span> <span class="dl">'</span><span class="s1">/&lt;repo-name&gt;/</span><span class="dl">'</span><span class="p">,</span> <span class="c1">// Replace &lt;repo-name&gt; with your actual GitHub repository name</span>
+  <span class="na">base</span><span class="p">:</span> <span class="dl">'</span><span class="s1">/&lt;your-repo-name&gt;/</span><span class="dl">'</span><span class="p">,</span> <span class="c1">// Replace &lt;your-repo-name&gt; with your actual GitHub repository name</span>
 <span class="p">});</span>
 </code></pre></div>    </div>
   </li>
 </ol>
 
-<h2 id="step-3-modify-packagejson-for-deployment"><strong>Step 3: Modify package.json for Deployment</strong></h2>
+<h2 id="step-4-modify-packagejson-for-deployment"><strong>Step 4: Modify package.json for Deployment</strong></h2>
 <ol>
   <li>Open <code class="language-plaintext highlighter-rouge">package.json</code>.</li>
+  <li>Add this line to the top-level of the file:
+    <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"homepage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://&lt;your-username&gt;.github.io/&lt;your-repo-name&gt;/"</span><span class="err">,</span><span class="w">
+</span></code></pre></div>    </div>
+  </li>
   <li>Add the following scripts inside the <code class="language-plaintext highlighter-rouge">scripts</code> section:
     <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"predeploy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"npm run build"</span><span class="err">,</span><span class="w">
 </span><span class="nl">"deploy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"gh-pages -d dist"</span><span class="w">
 </span></code></pre></div>    </div>
+    <p>Below is an example of how your the <code class="language-plaintext highlighter-rouge">package.json</code> file should look after modification:</p>
+
+    <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+   </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"my-vite-app"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"private"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0.0"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"module"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"homepage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://anushnandyala.github.io/my-vite-app/"</span><span class="p">,</span><span class="w"> 
+   </span><span class="nl">"scripts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"dev"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vite"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"build"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vite build"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"lint"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eslint ."</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"preview"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vite preview"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"predeploy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"npm run build"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"deploy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"gh-pages -d dist"</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="nl">"dependencies"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"react"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^19.0.0"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"react-dom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^19.0.0"</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="nl">"devDependencies"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"@eslint/js"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^9.21.0"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"@types/react"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^19.0.10"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"@types/react-dom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^19.0.4"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"@vitejs/plugin-react"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^4.3.4"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"eslint"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^9.21.0"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"eslint-plugin-react-hooks"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^5.1.0"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"eslint-plugin-react-refresh"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^0.4.19"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"gh-pages"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^6.3.0"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"globals"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^15.15.0"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"vite"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^6.2.0"</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>    </div>
   </li>
-  <li>Install the GitHub Pages package:
+  <li>Run the following command to install the GitHub Pages package:
     <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm <span class="nb">install </span>gh-pages <span class="nt">--save-dev</span>
 </code></pre></div>    </div>
   </li>
 </ol>
 
-<h2 id="step-4-initialize-git-and-push-the-project-to-github"><strong>Step 4: Initialize Git and Push the Project to GitHub</strong></h2>
+<h2 id="step-5-initialize-git-and-push-the-project-to-github"><strong>Step 5: Initialize Git and Push the Project to GitHub</strong></h2>
 <ol>
   <li>Initialize a Git repository:
     <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git init
 </code></pre></div>    </div>
   </li>
   <li>Add the remote GitHub repository:
-    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git remote add origin https://github.com/&lt;your-username&gt;/&lt;repo-name&gt;.git
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git remote add origin https://github.com/&lt;your-username&gt;/&lt;your-repo-name&gt;.git
 </code></pre></div>    </div>
   </li>
   <li>Commit and push the code:
@@ -171,9 +230,14 @@ git branch <span class="nt">-M</span> main
 git push <span class="nt">-u</span> origin main
 </code></pre></div>    </div>
   </li>
+  <li>
+    <p>Go to <code class="language-plaintext highlighter-rouge">https://github.com/&lt;your-username&gt;/&lt;your-repo-name&gt;</code> to see your Vite app on GitHub.</p>
+
+    <p><img src="./assets/images/github-vite-repo.png" alt="GitHub Vite Repo" width="500" /></p>
+  </li>
 </ol>
 
-<h2 id="step-5-deploy-the-app-to-github-pages"><strong>Step 5: Deploy the App to GitHub Pages</strong></h2>
+<h2 id="step-6-deploy-the-app-to-github-pages"><strong>Step 6: Deploy the App to GitHub Pages</strong></h2>
 <ol>
   <li>Run the deployment script:
     <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm run deploy
@@ -182,13 +246,26 @@ git push <span class="nt">-u</span> origin main
   </li>
 </ol>
 
-<h2 id="step-6-enable-github-pages"><strong>Step 6: Enable GitHub Pages</strong></h2>
+<h2 id="step-7-enable-github-pages"><strong>Step 7: Enable GitHub Pages</strong></h2>
 <ol>
-  <li>Navigate to your <strong>GitHub repository</strong>.</li>
-  <li>Go to <strong>Settings &gt; Pages</strong>.</li>
-  <li>Under <strong>Branch</strong>, select <code class="language-plaintext highlighter-rouge">gh-pages</code> and click <strong>Save</strong>.</li>
-  <li>Your site will be available at:
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://&lt;your-username&gt;.github.io/&lt;repo-name&gt;/
+  <li>
+    <p>Navigate to your <strong>GitHub repository</strong> at <code class="language-plaintext highlighter-rouge">https://github.com/&lt;your-username&gt;/&lt;your-repo-name&gt;</code>.</p>
+
+    <p><img src="./assets/images/github-settings-button.png" alt="GitHub Settings Button" width="500" /></p>
+  </li>
+  <li>
+    <p>Go to <strong>Settings &gt; Pages</strong>.</p>
+
+    <p><img src="./assets/images/github-pages-button.png" alt="GitHub Pages Button" width="300" /></p>
+  </li>
+  <li>
+    <p>Under <strong>Branch</strong>, select <code class="language-plaintext highlighter-rouge">gh-pages</code> and click <strong>Save</strong>.</p>
+
+    <p><img src="./assets/images/github-branch-select.png" alt="GitHub Branch Select" width="500" /></p>
+  </li>
+  <li>
+    <p>Your site will be available at:</p>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://&lt;your-username&gt;.github.io/&lt;your-repo-name&gt;/
 </code></pre></div>    </div>
   </li>
 </ol>
