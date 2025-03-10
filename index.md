@@ -41,7 +41,22 @@ Before starting, ensure you have the following tools installed and configured on
 ---
 # **Step-by-Step Instructions**
 
-## **Step 1: Set Up a React + Vite Project**
+## **Step 1: Create a GitHub Repository**
+1. Go to GitHub and log in.
+2. Click on New Repository.
+
+   <img src="./assets/images/github-new-repo.png" alt="GitHub New Repo Button" width="500">
+
+
+3. Enter a repository name (e.g., \<your-repo-name\>).
+4. Choose Public (or Private if you have GitHub Pro).
+5. Do not initialize with a README, .gitignore, or license (these will be added later).
+6. Click Create Repository.
+
+   <img src="./assets/images/github-create-repo.png" alt="GitHub Create Repo" width="500">
+
+
+## **Step 2: Set Up a React + Vite Project**
 1. Open a terminal or command prompt.
 2. Navigate to the directory where you want to create the project.
 
@@ -67,21 +82,6 @@ Before starting, ensure you have the following tools installed and configured on
    ```sh
    npm install
    ```
-
-## **Step 2: Create a GitHub Repository**
-1. Go to GitHub and log in.
-2. Click on New Repository.
-
-   <img src="./assets/images/github-new-repo.png" alt="GitHub New Repo Button" width="500">
-
-
-3. Enter a repository name (e.g., \<your-repo-name\>).
-4. Choose Public (or Private if you have GitHub Pro).
-5. Do not initialize with a README, .gitignore, or license (these will be added later).
-6. Click Create Repository.
-
-   <img src="./assets/images/github-create-repo.png" alt="GitHub Create Repo" width="500">
-
 
 ## **Step 3: Configure Vite for GitHub Pages**
 1. Open `vite.config.js` in a code editor.
@@ -197,11 +197,89 @@ Before starting, ensure you have the following tools installed and configured on
    <img src="./assets/images/github-branch-select.png" alt="GitHub Branch Select" width="500">
 
 4. Your site will be available at:
+
    ```
    https://<your-username>.github.io/<your-repo-name>/
    ```
 
    <img src="./assets/images/vite-site.png" alt="Vite Site" width="500">
+
+5. When you make changes to your project, run `npm run deploy` to update the deployed site. Note that this is seperate from pushing changes to the main branch.
+
+## **Step 8 (Optional): Automate Deployment with GitHub Actions**
+
+If you want to deploy to the website everytime you push to the main branch, you can set up a GitHub Action workflow using the following steps.
+
+1. Inside your project, create a new folder.
+
+   ```sh
+   mkdir -p .github/workflows
+   ```
+2. Create a new file inside that folder:
+
+   ```sh
+   touch .github/workflows/deploy.yml
+   ```
+3. Open the `deploy.yml` file and add the following content:
+
+   ```yml
+   name: Deploy to GitHub Pages
+
+   on:
+   push:
+      branches:
+         - main  # Runs when pushing to main
+
+   permissions:
+   contents: write  # Ensure GitHub Actions can push to gh-pages
+
+   jobs:
+   deploy:
+      runs-on: ubuntu-latest
+
+      steps:
+         - name: Checkout Repository
+         uses: actions/checkout@v4
+         with:
+            persist-credentials: false  # Important for token-based authentication
+
+         - name: Set up Node.js
+         uses: actions/setup-node@v4
+         with:
+            node-version: 18
+            cache: 'npm'
+
+         - name: Install Dependencies
+         run: npm install
+
+         - name: Build Project
+         run: npm run build
+
+         - name: Deploy to GitHub Pages
+         env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+         run: npm run deploy
+   ```
+4. Update the `deploy` script in the `package.json` file to:
+
+   ```json
+   "deploy": "gh-pages -d dist -u \"github-actions-bot <github-actions@github.com>\" --repo https://x-access-token:${GITHUB_TOKEN}@github.com/<your-username>/<your-repo-name>.git"
+   ```
+
+5. Commit and push the changes to main.
+
+   ```sh
+   git add .
+   git commit -m "Add GitHub Actions auto-deploy workflow"
+   git push origin main
+   ```
+
+6. Go to the **Actions** tab in your GitHub repository to see the workflow running.
+
+Now, every time you push to the main branch, Github Actions will:
+- Install dependencies
+- Build your Vite project  
+- Deploy the project to GitHub Pages using `gh-pages`
 
 ---
 # **Conclusion & Further Resources**

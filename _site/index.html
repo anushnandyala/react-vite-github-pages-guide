@@ -106,7 +106,25 @@
 <hr />
 <h1 id="step-by-step-instructions"><strong>Step-by-Step Instructions</strong></h1>
 
-<h2 id="step-1-set-up-a-react--vite-project"><strong>Step 1: Set Up a React + Vite Project</strong></h2>
+<h2 id="step-1-create-a-github-repository"><strong>Step 1: Create a GitHub Repository</strong></h2>
+<ol>
+  <li>Go to GitHub and log in.</li>
+  <li>
+    <p>Click on New Repository.</p>
+
+    <p><img src="./assets/images/github-new-repo.png" alt="GitHub New Repo Button" width="500" /></p>
+  </li>
+  <li>Enter a repository name (e.g., &lt;your-repo-name&gt;).</li>
+  <li>Choose Public (or Private if you have GitHub Pro).</li>
+  <li>Do not initialize with a README, .gitignore, or license (these will be added later).</li>
+  <li>
+    <p>Click Create Repository.</p>
+
+    <p><img src="./assets/images/github-create-repo.png" alt="GitHub Create Repo" width="500" /></p>
+  </li>
+</ol>
+
+<h2 id="step-2-set-up-a-react--vite-project"><strong>Step 2: Set Up a React + Vite Project</strong></h2>
 <ol>
   <li>Open a terminal or command prompt.</li>
   <li>
@@ -133,24 +151,6 @@ npm create vite@latest &lt;your-project-name&gt; <span class="nt">--</span> <spa
 
     <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm <span class="nb">install</span>
 </code></pre></div>    </div>
-  </li>
-</ol>
-
-<h2 id="step-2-create-a-github-repository"><strong>Step 2: Create a GitHub Repository</strong></h2>
-<ol>
-  <li>Go to GitHub and log in.</li>
-  <li>
-    <p>Click on New Repository.</p>
-
-    <p><img src="./assets/images/github-new-repo.png" alt="GitHub New Repo Button" width="500" /></p>
-  </li>
-  <li>Enter a repository name (e.g., &lt;your-repo-name&gt;).</li>
-  <li>Choose Public (or Private if you have GitHub Pro).</li>
-  <li>Do not initialize with a README, .gitignore, or license (these will be added later).</li>
-  <li>
-    <p>Click Create Repository.</p>
-
-    <p><img src="./assets/images/github-create-repo.png" alt="GitHub Create Repo" width="500" /></p>
   </li>
 </ol>
 
@@ -289,12 +289,100 @@ git push <span class="nt">-u</span> origin main
   </li>
   <li>
     <p>Your site will be available at:</p>
+
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://&lt;your-username&gt;.github.io/&lt;your-repo-name&gt;/
 </code></pre></div>    </div>
 
     <p><img src="./assets/images/vite-site.png" alt="Vite Site" width="500" /></p>
   </li>
+  <li>
+    <p>When you make changes to your project, run <code class="language-plaintext highlighter-rouge">npm run deploy</code> to update the deployed site. Note that this is seperate from pushing changes to the main branch.</p>
+  </li>
 </ol>
+
+<h2 id="step-8-optional-automate-deployment-with-github-actions"><strong>Step 8 (Optional): Automate Deployment with GitHub Actions</strong></h2>
+
+<p>If you want to deploy to the website everytime you push to the main branch, you can set up a GitHub Action workflow using the following steps.</p>
+
+<ol>
+  <li>
+    <p>Inside your project, create a new folder.</p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir</span> <span class="nt">-p</span> .github/workflows
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Create a new file inside that folder:</p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">touch</span> .github/workflows/deploy.yml
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Open the <code class="language-plaintext highlighter-rouge">deploy.yml</code> file and add the following content:</p>
+
+    <div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">name</span><span class="pi">:</span> <span class="s">Deploy to GitHub Pages</span>
+
+<span class="na">on</span><span class="pi">:</span>
+<span class="na">push</span><span class="pi">:</span>
+   <span class="na">branches</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">main</span>  <span class="c1"># Runs when pushing to main</span>
+
+<span class="na">permissions</span><span class="pi">:</span>
+<span class="na">contents</span><span class="pi">:</span> <span class="s">write</span>  <span class="c1"># Ensure GitHub Actions can push to gh-pages</span>
+
+<span class="na">jobs</span><span class="pi">:</span>
+<span class="na">deploy</span><span class="pi">:</span>
+   <span class="na">runs-on</span><span class="pi">:</span> <span class="s">ubuntu-latest</span>
+
+   <span class="na">steps</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Checkout Repository</span>
+      <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/checkout@v4</span>
+      <span class="na">with</span><span class="pi">:</span>
+         <span class="na">persist-credentials</span><span class="pi">:</span> <span class="kc">false</span>  <span class="c1"># Important for token-based authentication</span>
+
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Set up Node.js</span>
+      <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/setup-node@v4</span>
+      <span class="na">with</span><span class="pi">:</span>
+         <span class="na">node-version</span><span class="pi">:</span> <span class="m">18</span>
+         <span class="na">cache</span><span class="pi">:</span> <span class="s1">'</span><span class="s">npm'</span>
+
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Install Dependencies</span>
+      <span class="na">run</span><span class="pi">:</span> <span class="s">npm install</span>
+
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Build Project</span>
+      <span class="na">run</span><span class="pi">:</span> <span class="s">npm run build</span>
+
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Deploy to GitHub Pages</span>
+      <span class="na">env</span><span class="pi">:</span>
+         <span class="na">GITHUB_TOKEN</span><span class="pi">:</span> <span class="s">$</span>
+      <span class="na">run</span><span class="pi">:</span> <span class="s">npm run deploy</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Update the <code class="language-plaintext highlighter-rouge">deploy</code> script in the <code class="language-plaintext highlighter-rouge">package.json</code> file to:</p>
+
+    <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"deploy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"gh-pages -d dist -u </span><span class="se">\"</span><span class="s2">github-actions-bot &lt;github-actions@github.com&gt;</span><span class="se">\"</span><span class="s2"> --repo https://x-access-token:${GITHUB_TOKEN}@github.com/&lt;your-username&gt;/&lt;your-repo-name&gt;.git"</span><span class="w">
+</span></code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Commit and push the changes to main.</p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add <span class="nb">.</span>
+git commit <span class="nt">-m</span> <span class="s2">"Add GitHub Actions auto-deploy workflow"</span>
+git push origin main
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Go to the <strong>Actions</strong> tab in your GitHub repository to see the workflow running.</p>
+  </li>
+</ol>
+
+<p>Now, every time you push to the main branch, Github Actions will:</p>
+<ul>
+  <li>Install dependencies</li>
+  <li>Build your Vite project</li>
+  <li>Deploy the project to GitHub Pages using <code class="language-plaintext highlighter-rouge">gh-pages</code></li>
+</ul>
 
 <hr />
 <h1 id="conclusion--further-resources"><strong>Conclusion &amp; Further Resources</strong></h1>
