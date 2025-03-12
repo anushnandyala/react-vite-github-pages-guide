@@ -56,7 +56,10 @@ Before starting, ensure you have the following tools installed and configured on
 1. Go to GitHub and log in.
 2. Click on New Repository.
 
-   <img src="./assets/images/github-new-repo.png" alt="GitHub New Repo Button" width="500">
+<figure>
+  <img src="./assets/images/github-new-repo.png" alt="GitHub New Repo Button" width="500">
+  <figcaption style="font-size: 14px; color: gray;">Figure 1: Creating a new GitHub repository.</figcaption>
+</figure>
 
 
 3. Enter a repository name (e.g., \<your-repo-name\>).
@@ -64,8 +67,10 @@ Before starting, ensure you have the following tools installed and configured on
 5. Do not initialize with a README, .gitignore, or license (these will be added later).
 6. Click Create Repository.
 
-   <img src="./assets/images/github-create-repo.png" alt="GitHub Create Repo" width="500">
-
+<figure>
+  <img src="./assets/images/github-create-repo.png" alt="GitHub Create Repo" width="500">
+  <figcaption style="font-size: 14px; color: gray;">Figure 2: GitHub interface when creating a repository.</figcaption>
+</figure>
 
 ## **Step 2: Set Up a React + Vite Project**
 1. Open a terminal or command prompt.
@@ -184,7 +189,10 @@ Before starting, ensure you have the following tools installed and configured on
    ```
 4. Go to `https://github.com/<your-username>/<your-repo-name>` to see your code on GitHub.
 
-   <img src="./assets/images/github-vite-repo.png" alt="GitHub Vite Repo" width="500">
+<figure>
+  <img src="./assets/images/github-vite-repo.png" alt="GitHub Vite Repo" width="500">
+  <figcaption style="font-size: 14px; color: gray;">Figure 3: GitHub repository with the Vite project files.</figcaption>
+</figure>
 
 ## **Step 6: Deploy the App to GitHub Pages**
 1. Run the deployment script:
@@ -197,15 +205,24 @@ Before starting, ensure you have the following tools installed and configured on
 ## **Step 7: Enable GitHub Pages**
 1. Navigate to your **GitHub repository** at `https://github.com/<your-username>/<your-repo-name>`.
 
-   <img src="./assets/images/github-settings-button.png" alt="GitHub Settings Button" width="500">
+<figure>
+  <img src="./assets/images/github-settings-button.png" alt="GitHub Settings Button" width="500">
+  <figcaption style="font-size: 14px; color: gray;">Figure 4: GitHub Settings button for repository configuration.</figcaption>
+</figure>
 
 2. Go to **Settings > Pages**.
 
-   <img src="./assets/images/github-pages-button.png" alt="GitHub Pages Button" width="300">
+<figure>
+  <img src="./assets/images/github-pages-button.png" alt="GitHub Pages Button" width="300">
+  <figcaption style="font-size: 14px; color: gray;">Figure 5: Navigating to the GitHub Pages section in repository settings.</figcaption>
+</figure>
 
 3. Under **Branch**, select `gh-pages` and click **Save**.
 
-   <img src="./assets/images/github-branch-select.png" alt="GitHub Branch Select" width="500">
+<figure>
+  <img src="./assets/images/github-branch-select.png" alt="GitHub Branch Select" width="500">
+  <figcaption style="font-size: 14px; color: gray;">Figure 6: Selecting the `gh-pages` branch for deployment on GitHub Pages.</figcaption>
+</figure>
 
 4. Your site will be available at:
 
@@ -213,7 +230,10 @@ Before starting, ensure you have the following tools installed and configured on
    https://<your-username>.github.io/<your-repo-name>/
    ```
 
-   <img src="./assets/images/vite-site.png" alt="Vite Site" width="500">
+<figure>
+  <img src="./assets/images/vite-site.png" alt="Vite Site" width="500">
+  <figcaption style="font-size: 14px; color: gray;">Figure 7: Example of a deployed Vite site hosted on GitHub Pages.</figcaption>
+</figure>
 
 5. When you make changes to your project, run `npm run deploy` to update the deployed site. Note that this is seperate from pushing changes to the main branch.
 
@@ -289,7 +309,10 @@ If you want to deploy to the website everytime you push to the main branch, you 
 
 6. Go to the **Actions** tab in your GitHub repository to see the workflow running.
 
-   <img src="./assets/images/github-actions.png" alt="Github Actions" width="600">
+<figure>
+  <img src="./assets/images/github-actions.png" alt="GitHub Actions" width="600">
+  <figcaption style="font-size: 14px; color: gray;">Figure 8: GitHub Actions workflow running the deployment process.</figcaption>
+</figure>
 
 Now, every time you push to the main branch, Github Actions will:
 - Install dependencies
