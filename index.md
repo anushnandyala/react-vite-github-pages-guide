@@ -226,39 +226,39 @@ If you want to deploy to the website everytime you push to the main branch, you 
    name: Deploy to GitHub Pages
 
    on:
-   push:
-      branches:
-         - main  # Runs when pushing to main
+      push:
+         branches:
+            - main  # Runs when pushing to main
 
    permissions:
-   contents: write  # Ensure GitHub Actions can push to gh-pages
+      contents: write  # Ensure GitHub Actions can push to gh-pages
 
    jobs:
-   deploy:
-      runs-on: ubuntu-latest
+      deploy:
+         runs-on: ubuntu-latest
 
-      steps:
-         - name: Checkout Repository
-         uses: actions/checkout@v4
-         with:
-            persist-credentials: false  # Important for token-based authentication
+         steps:
+            - name: Checkout Repository
+               uses: actions/checkout@v4
+               with:
+                  persist-credentials: false  # Important for token-based authentication
 
-         - name: Set up Node.js
-         uses: actions/setup-node@v4
-         with:
-            node-version: 18
-            cache: 'npm'
+            - name: Set up Node.js
+               uses: actions/setup-node@v4
+               with:
+                  node-version: 18
+                  cache: 'npm'
 
-         - name: Install Dependencies
-         run: npm install
+            - name: Install Dependencies
+               run: npm install
 
-         - name: Build Project
-         run: npm run build
+            - name: Build Project
+               run: npm run build
 
-         - name: Deploy to GitHub Pages
-         env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-         run: npm run deploy
+            - name: Deploy to GitHub Pages
+               env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+               run: npm run deploy
    ```
 4. Update the `deploy` script in the `package.json` file to:
 
