@@ -222,6 +222,7 @@ If you want to deploy to the website everytime you push to the main branch, you 
    ```
 3. Open the `deploy.yml` file and add the following content:
 
+   {% raw %}
    ```yml
    name: Deploy to GitHub Pages
 
@@ -260,6 +261,7 @@ If you want to deploy to the website everytime you push to the main branch, you 
                 GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
               run: npm run deploy
    ```
+   {% endraw %}
 4. Update the `deploy` script in the `package.json` file to:
 
    ```json
@@ -275,6 +277,8 @@ If you want to deploy to the website everytime you push to the main branch, you 
    ```
 
 6. Go to the **Actions** tab in your GitHub repository to see the workflow running.
+
+   <img src="./assets/images/github-actions.png" alt="Github Actions" width="600">
 
 Now, every time you push to the main branch, Github Actions will:
 - Install dependencies

@@ -354,7 +354,7 @@ git push <span class="nt">-u</span> origin main
 
          <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Deploy to GitHub Pages</span>
            <span class="na">env</span><span class="pi">:</span>
-             <span class="na">GITHUB_TOKEN</span><span class="pi">:</span> <span class="s">$</span>
+             <span class="na">GITHUB_TOKEN</span><span class="pi">:</span> <span class="s">${{ secrets.GITHUB_TOKEN }}</span>
            <span class="na">run</span><span class="pi">:</span> <span class="s">npm run deploy</span>
 </code></pre></div>    </div>
   </li>
@@ -374,6 +374,8 @@ git push origin main
   </li>
   <li>
     <p>Go to the <strong>Actions</strong> tab in your GitHub repository to see the workflow running.</p>
+
+    <p><img src="./assets/images/github-actions.png" alt="Github Actions" width="600" /></p>
   </li>
 </ol>
 
