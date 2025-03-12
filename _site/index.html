@@ -323,39 +323,39 @@ git push <span class="nt">-u</span> origin main
     <div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">name</span><span class="pi">:</span> <span class="s">Deploy to GitHub Pages</span>
 
 <span class="na">on</span><span class="pi">:</span>
-<span class="na">push</span><span class="pi">:</span>
-   <span class="na">branches</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="s">main</span>  <span class="c1"># Runs when pushing to main</span>
+   <span class="na">push</span><span class="pi">:</span>
+      <span class="na">branches</span><span class="pi">:</span>
+         <span class="pi">-</span> <span class="s">main</span>  <span class="c1"># Runs when pushing to main</span>
 
 <span class="na">permissions</span><span class="pi">:</span>
-<span class="na">contents</span><span class="pi">:</span> <span class="s">write</span>  <span class="c1"># Ensure GitHub Actions can push to gh-pages</span>
+   <span class="na">contents</span><span class="pi">:</span> <span class="s">write</span>  <span class="c1"># Ensure GitHub Actions can push to gh-pages</span>
 
 <span class="na">jobs</span><span class="pi">:</span>
-<span class="na">deploy</span><span class="pi">:</span>
-   <span class="na">runs-on</span><span class="pi">:</span> <span class="s">ubuntu-latest</span>
+   <span class="na">deploy</span><span class="pi">:</span>
+      <span class="na">runs-on</span><span class="pi">:</span> <span class="s">ubuntu-latest</span>
 
-   <span class="na">steps</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Checkout Repository</span>
-      <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/checkout@v4</span>
-      <span class="na">with</span><span class="pi">:</span>
-         <span class="na">persist-credentials</span><span class="pi">:</span> <span class="kc">false</span>  <span class="c1"># Important for token-based authentication</span>
+      <span class="na">steps</span><span class="pi">:</span>
+         <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Checkout Repository</span>
+           <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/checkout@v4</span>
+           <span class="na">with</span><span class="pi">:</span>
+             <span class="na">persist-credentials</span><span class="pi">:</span> <span class="kc">false</span>  <span class="c1"># Important for token-based authentication</span>
 
-      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Set up Node.js</span>
-      <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/setup-node@v4</span>
-      <span class="na">with</span><span class="pi">:</span>
-         <span class="na">node-version</span><span class="pi">:</span> <span class="m">18</span>
-         <span class="na">cache</span><span class="pi">:</span> <span class="s1">'</span><span class="s">npm'</span>
+         <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Set up Node.js</span>
+           <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/setup-node@v4</span>
+           <span class="na">with</span><span class="pi">:</span>
+             <span class="na">node-version</span><span class="pi">:</span> <span class="m">18</span>
+             <span class="na">cache</span><span class="pi">:</span> <span class="s1">'</span><span class="s">npm'</span>
 
-      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Install Dependencies</span>
-      <span class="na">run</span><span class="pi">:</span> <span class="s">npm install</span>
+         <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Install Dependencies</span>
+           <span class="na">run</span><span class="pi">:</span> <span class="s">npm install</span>
 
-      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Build Project</span>
-      <span class="na">run</span><span class="pi">:</span> <span class="s">npm run build</span>
+         <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Build Project</span>
+           <span class="na">run</span><span class="pi">:</span> <span class="s">npm run build</span>
 
-      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Deploy to GitHub Pages</span>
-      <span class="na">env</span><span class="pi">:</span>
-         <span class="na">GITHUB_TOKEN</span><span class="pi">:</span> <span class="s">$</span>
-      <span class="na">run</span><span class="pi">:</span> <span class="s">npm run deploy</span>
+         <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Deploy to GitHub Pages</span>
+           <span class="na">env</span><span class="pi">:</span>
+             <span class="na">GITHUB_TOKEN</span><span class="pi">:</span> <span class="s">$</span>
+           <span class="na">run</span><span class="pi">:</span> <span class="s">npm run deploy</span>
 </code></pre></div>    </div>
   </li>
   <li>

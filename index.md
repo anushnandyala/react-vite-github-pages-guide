@@ -239,26 +239,26 @@ If you want to deploy to the website everytime you push to the main branch, you 
 
          steps:
             - name: Checkout Repository
-               uses: actions/checkout@v4
-               with:
-                  persist-credentials: false  # Important for token-based authentication
+              uses: actions/checkout@v4
+              with:
+                persist-credentials: false  # Important for token-based authentication
 
             - name: Set up Node.js
-               uses: actions/setup-node@v4
-               with:
-                  node-version: 18
-                  cache: 'npm'
+              uses: actions/setup-node@v4
+              with:
+                node-version: 18
+                cache: 'npm'
 
             - name: Install Dependencies
-               run: npm install
+              run: npm install
 
             - name: Build Project
-               run: npm run build
+              run: npm run build
 
             - name: Deploy to GitHub Pages
-               env:
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-               run: npm run deploy
+              env:
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              run: npm run deploy
    ```
 4. Update the `deploy` script in the `package.json` file to:
 
