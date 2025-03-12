@@ -330,8 +330,10 @@ For accessibility and further assistance, check **GitHub Discussions** or **Stac
 
 ---
 # **References**
-- Node.js. (n.d.). Retrieved from [https://nodejs.org/](https://nodejs.org/)
-- Git. (n.d.). Retrieved from [https://git-scm.com/](https://git-scm.com/)
-- GitHub CLI. (n.d.). Retrieved from [https://cli.github.com/](https://cli.github.com/)
-- Vite. (n.d.). Retrieved from [https://vitejs.dev/](https://vitejs.dev/)
+Node.js. (n.d.). *Node.js Downloads*. Retrieved March 10, 2025, from [https://nodejs.org/](https://nodejs.org/)
 
+Git. (n.d.). *Git - Downloads*. Retrieved March 10, 2025, from [https://git-scm.com/](https://git-scm.com/)
+
+GitHub Pages. (n.d.). *GitHub Pages - Websites for you and your projects*. Retrieved March 10, 2025, from [https://pages.github.com/](https://pages.github.com/)
+
+Vite. (n.d.). *Vite - Next generation frontend tooling*. Retrieved March 10, 2025, from [https://vitejs.dev/](https://vitejs.dev/)
