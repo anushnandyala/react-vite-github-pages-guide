@@ -239,7 +239,7 @@ Before starting, ensure you have the following tools installed and configured on
 
 ## **Step 8 (Optional): Automate Deployment with GitHub Actions**
 
-If you want to deploy to the website everytime you push to the main branch, you can set up a GitHub Action workflow using the following steps.
+If you want to deploy to the website everytime you push to the main branch, you can set up a GitHub Action workflow using the following steps. Note that these following steps only work if authenticate to GitHub using a personal access token.
 
 1. Inside your project, create a new folder.
 
