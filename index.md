@@ -84,7 +84,7 @@ Before starting, ensure you have the following tools installed and configured on
 
    ```sh
    # Replace <your-project-name> with your desired project name
-   npm create vite@latest <your-project-name> -- --template react 
+   npm create vite@latest <your-project-name> -- --template react-ts 
    ```
 
 4. Navigate into the project directory:
